@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://121.196.103.194:3306/warma?serverTimezone=UTC&characterEncoding=utf-8
+      username: warma
+      password: android00544
