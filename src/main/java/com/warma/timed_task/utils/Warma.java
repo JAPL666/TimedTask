@@ -143,9 +143,6 @@ public class Warma {
         BASE64Encoder encoder = new BASE64Encoder();
         return "data:image/jpeg;base64,"+encoder.encode(Objects.requireNonNull(data));
     }
-    public static String getRootPath(){
-        return System.getProperty("user.dir");
-    }
     public static String urlEncoder(String str){
         try {
             return URLEncoder.encode(str);
