@@ -41,8 +41,7 @@ public class CloudLearning {
         String passwrod=emp.getPassword();
         String name=emp.getName();
 
-        String address="广西壮族自治区南宁市西乡塘区丰达路";
-        address=Warma.urlEncoder(address);
+        String address=Warma.urlEncoder("广西壮族自治区南宁市西乡塘区丰达路");
 
         String rootPath = Warma.getRootPath();
         String path=rootPath+"\\src\\main\\resources\\static\\images\\";
@@ -70,9 +69,17 @@ public class CloudLearning {
 
             String pid = Warma.regex("\"id\":([^\"]+),",getPid.get("result")).trim();
 
-            String str_qd="pid="+pid+"&uid="+luid+"&token="+ltoken+"&action=qdadd&address="+address+"&jd=108.289131&wd=22.869309&acontent=data%3Aimage%2Fjpeg%3Bbase64%2C"+image;
+            String str_qd="pid="+pid+"&uid="+luid+"&token="+ltoken+"&action=qdadd&address="+address+"&jd=108.28913"+Warma.Random(0, 9)+"&wd=22.86930"+Warma.Random(0, 9)+"&acontent="+image;
 
             String url_qd="http://sx.lcvc.cn/mobile/training/s_practice_qd.xhtml";
+
+            HashMap<Object, Object> map = new HashMap<>();
+            map.put("Accept","application/json");
+            map.put("X-Requested-With","XMLHttpRequest");
+            map.put("User-Agent","Mozilla/5.0 (Linux; Android 10; MI 8 UD Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/32.363636)");
+            map.put("Accept-Encoding","gzip, deflate");
+            map.put("Accept-Language","zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
+
             HashMap<String,String> result= Warma.post(url_qd,str_qd,new HashMap<>());
             assert result != null;
             if(result.get("result").contains("1")){

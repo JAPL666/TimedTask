@@ -9,10 +9,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
@@ -73,7 +70,8 @@ public class Warma {
             HttpURLConnection connection=(HttpURLConnection)url2.openConnection();
             connection.setRequestMethod("POST");
             connection.addRequestProperty("Connection", "keep-alive");
-            connection.addRequestProperty("content-type", "application/x-www-form-urlencoded");
+            connection.addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+
             Set<String> keySet = requestProperty.keySet();
             for (String key:keySet){
                 connection.addRequestProperty(key,requestProperty.get(key));
@@ -133,29 +131,25 @@ public class Warma {
         }
     }
     public static String ImageToBase64(String imgPath){
-        BASE64Encoder encoder = new BASE64Encoder();
+        byte[] data = null;
         try {
             InputStream in = new FileInputStream(imgPath);
-            int lenght;
-            byte[] data=new byte[1024];
-            ByteArrayOutputStream out=new ByteArrayOutputStream();
-            while((lenght=in.read(data))!=-1){
-                out.write(data,0,lenght);
-            }
+            data = new byte[in.available()];
+            in.read(data);
             in.close();
-            return encoder.encode(out.toByteArray());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        BASE64Encoder encoder = new BASE64Encoder();
+        return "data:image/jpeg;base64,"+encoder.encode(Objects.requireNonNull(data));
     }
     public static String getRootPath(){
         return System.getProperty("user.dir");
     }
     public static String urlEncoder(String str){
         try {
-            return URLEncoder.encode(str, "UTF-8" );
-        } catch (UnsupportedEncodingException e) {
+            return URLEncoder.encode(str);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return "";
