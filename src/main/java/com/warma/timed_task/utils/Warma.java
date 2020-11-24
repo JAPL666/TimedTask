@@ -1,9 +1,12 @@
 package com.warma.timed_task.utils;
 
+import sun.misc.BASE64Encoder;
+
 import java.io.*;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.util.HashMap;
@@ -128,5 +131,37 @@ public class Warma {
             e.printStackTrace();
             return null;
         }
+    }
+    public static String ImageToBase64(String imgPath){
+        BASE64Encoder encoder = new BASE64Encoder();
+        try {
+            InputStream in = new FileInputStream(imgPath);
+            int lenght;
+            byte[] data=new byte[1024];
+            ByteArrayOutputStream out=new ByteArrayOutputStream();
+            while((lenght=in.read(data))!=-1){
+                out.write(data,0,lenght);
+            }
+            in.close();
+            return encoder.encode(out.toByteArray());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static String getRootPath(){
+        return System.getProperty("user.dir");
+    }
+    public static String urlEncoder(String str){
+        try {
+            return URLEncoder.encode(str, "UTF-8" );
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+    //获取指定范围的随机数
+    public static int Random(int s,int d){
+        return (int)(Math.random()*(d-s)+s);
     }
 }
