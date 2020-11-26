@@ -31,7 +31,7 @@ public class CloudLearning {
         List<Emp> allEmp = cloudLearning.empService.findAllEmp();
         for (Emp emp : allEmp) {
             String result = run(emp);
-            str.append(result).append("\n\n").append("-------------------------------");
+            str.append(result).append("\n\n").append("-------------------------------\n\n");
         }
         Mail.sendEmail("2453885428@qq.com","实习签到结果",str.toString());
     }
