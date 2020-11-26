@@ -141,7 +141,7 @@ public class Warma {
             e.printStackTrace();
         }
         BASE64Encoder encoder = new BASE64Encoder();
-        return "data:image/jpeg;base64,"+encoder.encode(Objects.requireNonNull(data));
+        return "data:image/jpeg;base64,"+encoder.encode(Objects.requireNonNull(data)).replace("\r\n","");
     }
     public static String urlEncoder(String str){
         try {
