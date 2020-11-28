@@ -2,6 +2,7 @@ package com.warma.timed_task.service.imple;
 
 import com.warma.timed_task.mapper.EmpMapper;
 import com.warma.timed_task.module.Emp;
+import com.warma.timed_task.module.QQEmp;
 import com.warma.timed_task.service.EmpService;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +18,20 @@ public class EmpServiceImple implements EmpService {
     @Override
     public List<Emp> findAllEmp() {
         return empMapper.findAllEmp();
+    }
+
+    @Override
+    public List<QQEmp> findCookiesByQQ() {
+        return empMapper.findCookiesByQQ();
+    }
+
+    @Override
+    public int insertQQCookies(QQEmp qqEmp) {
+        return empMapper.insertQQCookies(qqEmp);
+    }
+
+    @Override
+    public int deleteQQCookies(QQEmp qqEmp) {
+        return empMapper.deleteQQCookies(qqEmp);
     }
 }

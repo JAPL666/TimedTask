@@ -69,7 +69,6 @@ public class Warma {
             HttpURLConnection connection=(HttpURLConnection)url2.openConnection();
             connection.setRequestMethod("POST");
             connection.addRequestProperty("Connection", "keep-alive");
-            connection.addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 
             Set<String> keySet = requestProperty.keySet();
             for (String key:keySet){

@@ -1,6 +1,9 @@
 package com.warma.timed_task.mapper;
 
 import com.warma.timed_task.module.Emp;
+import com.warma.timed_task.module.QQEmp;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -11,4 +14,14 @@ public interface EmpMapper {
 
     @Select("select * from cloudlearning")
     List<Emp> findAllEmp();
+
+    @Select("select * from qq")
+    List<QQEmp> findCookiesByQQ();
+
+    @Insert("insert into qq (name,qq,cookies) values(#{name},#{qq},#{cookies}")
+    int insertQQCookies(QQEmp qqEmp);
+
+    @Delete("delete from qq where qq=#{qq}")
+    int deleteQQCookies(QQEmp qqEmp);
+
 }
