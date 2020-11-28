@@ -31,7 +31,7 @@ public class CloudLearning {
         List<Emp> allEmp = cloudLearning.empService.findAllEmp();
         for (Emp emp : allEmp) {
             String result = run(emp);
-            str.append(result).append("\n\n").append("-------------------------------\n\n");
+            str.append(result).append("\n\n").append("-----------------------------------------\n\n");
         }
         Mail.sendEmail("2453885428@qq.com","实习签到结果",str.toString());
     }
@@ -48,7 +48,7 @@ public class CloudLearning {
         int random = Warma.Random(0, files.length);
         File file = files[random];
 
-        String image=Warma.ImageToBase64(file.getPath());
+        String image=Warma.imageToBase64(file.getPath());
         image=Warma.urlEncoder(image);
 
         String url_login="http://sx.lcvc.cn/mobile/common/login.xhtml";
@@ -75,9 +75,6 @@ public class CloudLearning {
             HashMap<Object, Object> map = new HashMap<>();
             map.put("Accept","application/json");
             map.put("X-Requested-With","XMLHttpRequest");
-            map.put("User-Agent","Mozilla/5.0 (Linux; Android 10; MI 8 UD Build/QKQ1.190828.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36 Html5Plus/1.0 (Immersed/32.363636)");
-            map.put("Accept-Encoding","gzip, deflate");
-            map.put("Accept-Language","zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7");
 
             HashMap<String,String> result= Warma.post(url_qd,str_qd,new HashMap<>());
             assert result != null;

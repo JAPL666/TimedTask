@@ -1,7 +1,6 @@
 package com.warma.timed_task.utils;
 
-import sun.misc.BASE64Encoder;
-
+import org.apache.tomcat.util.codec.binary.Base64;
 import java.io.*;
 import java.math.BigInteger;
 import java.net.HttpURLConnection;
@@ -130,22 +129,26 @@ public class Warma {
             return null;
         }
     }
-    public static String ImageToBase64(String imgPath){
-        byte[] data = null;
+    public static String imageToBase64(String path){
         try {
-            InputStream in = new FileInputStream(imgPath);
-            data = new byte[in.available()];
-            in.read(data);
+            FileInputStream in = new FileInputStream(path);
+            int lenght;
+            byte[] data=new byte[1024];
+            ByteArrayOutputStream out=new ByteArrayOutputStream();
+            while((lenght=in.read(data))!=-1){
+                out.write(data,0,lenght);
+            }
             in.close();
-        } catch (IOException e) {
+            byte[] encode = new Base64().encode(out.toByteArray());
+            return "data:image/jpg;base64,"+new String(encode);
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        BASE64Encoder encoder = new BASE64Encoder();
-        return ("data:image/jpg;base64,"+encoder.encode(Objects.requireNonNull(data)).replace("\r\n","")).replace("\n","");
+        return "";
     }
     public static String urlEncoder(String str){
         try {
-            return URLEncoder.encode(str);
+            return URLEncoder.encode(str,"UTF-8");
         } catch (Exception e) {
             e.printStackTrace();
         }
