@@ -76,6 +76,7 @@ public class CloudLearning {
             map.put("Accept","application/json");
             map.put("X-Requested-With","XMLHttpRequest");
             map.put("Content-Type","application/x-www-form-urlencoded");
+            map.put("Cookie","");
 
             HashMap<String,String> result= Warma.post(url_qd,str_qd,new HashMap<>());
             assert result != null;
