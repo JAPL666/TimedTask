@@ -5,12 +5,14 @@ import com.warma.timed_task.service.EmpService;
 import com.warma.timed_task.utils.Mail;
 import com.warma.timed_task.utils.Warma;
 import org.apache.tomcat.util.codec.binary.Base64;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 
+@Component
 public class QQSignIn {
 
     @Resource(name = "empServiceImple")
