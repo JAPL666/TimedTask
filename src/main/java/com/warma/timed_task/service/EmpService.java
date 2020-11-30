@@ -8,7 +8,7 @@ import java.util.List;
 public interface EmpService {
     List<Emp> findAllEmp();
 
-    List<QQEmp> findCookiesByQQ();
+    List<QQEmp> findAllCookies();
 
     int insertQQCookies(QQEmp qqEmp);
 

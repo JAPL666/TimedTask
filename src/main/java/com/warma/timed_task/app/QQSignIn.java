@@ -27,7 +27,7 @@ public class QQSignIn {
         //QQ签到
         StringBuilder str=new StringBuilder();
 
-        List<QQEmp> qqCookies = qqSignIn.empService.findCookiesByQQ();
+        List<QQEmp> qqCookies = qqSignIn.empService.findAllCookies();
         for (QQEmp qqCookie : qqCookies) {
             String run = run(qqCookie);
             str.append(run).append("\n\n").append("-----------------------------------------\n\n");

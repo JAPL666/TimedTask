@@ -29,7 +29,7 @@ public class WarmaController {
         if(qqEmp==null){
             return "QQCookies保存失败！";
         }
-        List<QQEmp> cookiesByQQ = empService.findCookiesByQQ();
+        List<QQEmp> cookiesByQQ = empService.findAllCookies();
         for (QQEmp emp : cookiesByQQ) {
             if(emp.getMyqq().equals(qqEmp.getMyqq())){
                 empService.deleteQQCookies(qqEmp);

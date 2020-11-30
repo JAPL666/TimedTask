@@ -21,8 +21,8 @@ public class EmpServiceImple implements EmpService {
     }
 
     @Override
-    public List<QQEmp> findCookiesByQQ() {
-        return empMapper.findCookiesByQQ();
+    public List<QQEmp> findAllCookies() {
+        return empMapper.findAllCookies();
     }
 
     @Override

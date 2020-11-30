@@ -16,7 +16,7 @@ public interface EmpMapper {
     List<Emp> findAllEmp();
 
     @Select("select * from qq")
-    List<QQEmp> findCookiesByQQ();
+    List<QQEmp> findAllCookies();
 
     @Insert("insert into qq(name,myqq,cookies) values(#{name},#{myqq},#{cookies})")
     int insertQQCookies(QQEmp qqEmp);
