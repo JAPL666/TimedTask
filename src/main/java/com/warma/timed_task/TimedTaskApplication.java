@@ -39,7 +39,7 @@ public class TimedTaskApplication {
     private Connector redirectConnector() {
         Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
         connector.setScheme("http");
-        connector.setPort(80);
+        connector.setPort(1314);
         connector.setSecure(false);
         connector.setRedirectPort(443);
         return connector;
