@@ -20,15 +20,6 @@ public class TimedTaskApplication {
         SpringApplication.run(TimedTaskApplication.class, args);
     }
     @Bean
-    public TomcatServletWebServerFactory webServerFactory() {
-        TomcatServletWebServerFactory factory = new TomcatServletWebServerFactory();
-        factory.addConnectorCustomizers(connector -> {
-            connector.setProperty("relaxedPathChars", "\"<>[\\]^`{|}");
-            connector.setProperty("relaxedQueryChars", "\"<>[\\]^`{|}");
-        });
-        return factory;
-    }
-    @Bean
     public ServletWebServerFactory servletContainer() {
         TomcatServletWebServerFactory tomcat = new TomcatServletWebServerFactory() {
             @Override
