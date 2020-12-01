@@ -2,13 +2,9 @@ spring:
   datasource:
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://121.196.103.194:3306/warma?serverTimezone=UTC&characterEncoding=utf-8
+      url: jdbc:mysql://127.0.0.1:3306/warma?serverTimezone=UTC&characterEncoding=utf-8
       username: warma
       password: android00544
 
 server:
-  port: 443
-  ssl:
-    key-store: classpath:4076566_warma.fun.pfx
-    key-store-password: x4BkbP71
-    keyStoreType: PKCS12
+  port: 1314
