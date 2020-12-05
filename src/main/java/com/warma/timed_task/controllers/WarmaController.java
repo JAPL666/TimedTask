@@ -1,5 +1,6 @@
 package com.warma.timed_task.controllers;
 
+import com.warma.timed_task.app.CloudLearning;
 import com.warma.timed_task.module.QQEmp;
 import com.warma.timed_task.service.EmpService;
 import com.warma.timed_task.utils.Mail;
@@ -40,5 +41,10 @@ public class WarmaController {
             return "QQCookies保存成功！";
         }
         return "QQCookies保存失败！";
+    }
+    @RequestMapping("qiandao")
+    public Object cloudLearning(){
+        new CloudLearning().start();
+        return "全部签到完成！";
     }
 }
