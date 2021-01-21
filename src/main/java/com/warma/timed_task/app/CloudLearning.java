@@ -41,9 +41,9 @@ public class CloudLearning {
         String passwrod=emp.getPassword();
         String name=emp.getName();
 
-        String address=Warma.urlEncoder("广西壮族自治区南宁市西乡塘区丰达路");
+        String address=Warma.urlEncoder(emp.getAddress());
 
-        String path="/www/wwwroot/SpringBootApplication/TimedTask/imageFiles";
+        String path="C:/wwwroot/SpringBootApplication/TimedTask/imageFiles";
         File[] files = new File(path).listFiles();
         int random = Warma.Random(0, files.length);
         File file = files[random];

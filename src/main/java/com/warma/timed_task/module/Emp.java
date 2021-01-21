@@ -6,6 +6,7 @@ public class Emp implements Serializable {
     String account;
     String password;
     String name;
+    String address;
 
     public String getAccount() {
         return account;
@@ -29,5 +30,13 @@ public class Emp implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

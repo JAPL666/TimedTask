@@ -34,6 +34,7 @@ public class QQSignIn {
             String run = run(qqCookie);
             str.append(run).append("\n\n").append("-----------------------------------------\n\n");
         }
+
         Mail.sendEmail("2453885428@qq.com","QQ签到结果",str.toString());
     }
     public static String run(QQEmp qqEmp){
