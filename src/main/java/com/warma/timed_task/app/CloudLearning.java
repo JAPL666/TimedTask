@@ -43,7 +43,7 @@ public class CloudLearning {
 
         String address=Warma.urlEncoder(emp.getAddress());
 
-        String path="C:/wwwroot/SpringBootApplication/TimedTask/imageFiles";
+        String path="/www/wwwroot/SpringBootApplication/TimedTask/imageFiles";
         File[] files = new File(path).listFiles();
         int random = Warma.Random(0, files.length);
         File file = files[random];
